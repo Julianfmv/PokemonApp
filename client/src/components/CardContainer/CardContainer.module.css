@@ -1,0 +1,14 @@
+.CardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .CardContainer {
+      justify-content: center;
+    }
+  }

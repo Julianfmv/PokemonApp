@@ -1,0 +1,63 @@
+.pokemonDetails {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: n;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border: 2px solid black;
+    width: 300px;
+    margin: auto;
+    margin-top: 10%;
+    background-color: #ffeb9d;
+  }
+  
+  .goBackButton {
+    background-color: #3f51b5;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .goBackButton:hover {
+    background-color: #004c99;
+  }
+  
+  .pokemonId {
+    margin-top: 5%;
+    font-size: 2rem;
+    
+  }
+  
+  .pokemonName {
+    margin-top: 10px;
+    font-size: 36px;
+  }
+  
+  .pokeGif {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+  }
+  
+  .pokemonInfo {
+    margin-top: 20px;
+  }
+  
+  .pokemonType,
+  .pokemonHeight
+  .pokemonWeight,
+  .pokemonHp,
+  .pokemonDefense,
+  .pokemonAttack,
+  .pokemonSpeed {
+    margin: 5px 0;
+  }
+  .pokemonHeight{
+    margin-bottom: 5px;
+
+  }

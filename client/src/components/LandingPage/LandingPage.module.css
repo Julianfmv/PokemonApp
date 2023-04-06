@@ -1,0 +1,65 @@
+.landingContent {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow:hidden;
+  }
+  .landingDiv{
+    width: 100%;
+    overflow:hidden;
+   
+  }
+
+  .madeBy{
+    color: black;
+    margin-top: 3rem;
+    overflow:hidden;
+  }
+  .overlayContainer {
+    overflow:hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+  
+  /* .landing-content {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 2;
+  } */
+  
+  .welcome {
+    overflow:hidden;
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    text-shadow: 3px 3px 3px black;
+  }
+  
+  .enterButton {
+    overflow:hidden;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    background-color: white;
+    color: #f44336;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 4px 6px black;
+  }
+  
+  .enterButton:hover {
+    overflow:hidden;
+    background-color: #f44336;
+    color: white;
+  }
