@@ -7,3 +7,5 @@ export const ORDER_ATTACK = "ORDER_ATTACK";
 export const GET_TYPES = "GET_TYPES";
 export const FILTER_SEARCH = "FILTER_SEARCH";
 export const SET_PAGE = "SET_PAGE";
+export const RESET_FILTERS = "RESET_FILTERS";
+

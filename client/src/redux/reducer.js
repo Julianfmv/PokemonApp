@@ -7,6 +7,7 @@ import {
   FILTER_SEARCH,
   ORDER_ATTACK,
   ORDER_NAME,
+  RESET_FILTERS
 } from "./actionsTypes";
 
 const initialState = {
@@ -72,6 +73,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         pokemons: PokemonsByTypeFiltered,
         defaultPage: 1,
       };
+      case RESET_FILTERS: 
+      return {
+        ...state,
+        pokemons: state.allPokemons
+      }
 
     case ORDER_NAME:
       const isAscendent = payload === "Ascendent";

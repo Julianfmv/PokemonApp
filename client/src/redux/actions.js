@@ -8,6 +8,7 @@ import {
   ORDER_ATTACK,
   ORDER_NAME,
   SET_PAGE,
+  RESET_FILTERS
 } from "./actionsTypes";
 
 import axios from "axios";
@@ -82,3 +83,9 @@ export const setPageNumber = (number) => {
     dispatch({ type: SET_PAGE, payload: number });
   };
 };
+
+export const resetFilters = () => {
+  return (dispatch) => {
+    dispatch({type: RESET_FILTERS, payload: "reset" })
+  }
+}
