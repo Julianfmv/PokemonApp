@@ -8,8 +8,8 @@ import style from './Home.module.css'
 
 const Home = () => {
 
+  
     const dispatch = useDispatch();
-    
     useEffect(() => {
         dispatch(actions.getAllPokemons())
         dispatch(actions.getTypes())
@@ -22,24 +22,29 @@ const Home = () => {
     const [selectedOptionAttack, setSelectedOptionAttack] = useState("Default");
     const [selectedOptionSource, setSelectedOptionSource] = useState("All");
     const [selectedOptionType, setSelectedOptionType] = useState("All");
+    const [currentPage, setCurrentPage] = useState(1);
 
     function handleFilterByType (event) {
         dispatch(actions.filterByType(event.target.value))
         setSelectedOptionType(event.target.value)
+        setCurrentPage(1)
     }
     function handleFilterCreated (event) {
         dispatch(actions.filterBySource(event.target.value))
         setSelectedOptionSource(event.target.value)
+        setCurrentPage(1)
     }
     function handleOrderByName (event) {
         event.preventDefault();
         dispatch(actions.orderByName(event.target.value))
         setSelectedOptionName(event.target.value)
+        setCurrentPage(1)
     }
     function handleOrderByAttack (event){
         event.preventDefault();
         dispatch(actions.orderByAttack(event.target.value))
         setSelectedOptionAttack(event.target.value)
+        setCurrentPage(1)
     }
     const handleReset = () => {
       dispatch(actions.resetFilters())
@@ -47,6 +52,7 @@ const Home = () => {
       setSelectedOptionAttack('Default')
       setSelectedOptionSource('All')
       setSelectedOptionType('All')
+      setCurrentPage(1)
     }
     
     return (
@@ -126,7 +132,7 @@ const Home = () => {
 
             <button onClick={handleReset}>Reset filters!</button>
           </div>
-          <CardContainer />
+          <CardContainer currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
       );
     

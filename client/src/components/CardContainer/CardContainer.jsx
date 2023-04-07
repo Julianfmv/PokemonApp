@@ -7,7 +7,7 @@ import style from './CardContainer.module.css'
 
 
 
-const CardContainer = () => {
+const CardContainer = ({currentPage ,setCurrentPage}) => {
 
     
     // const dispatch = useDispatch();
@@ -15,9 +15,6 @@ const CardContainer = () => {
     // const allPokemons = useSelector(state => state.allPokemons)
 
     const orderedPokemons = useSelector(state => state.pokemons)
-    
-
-    const [currentPage, setCurrentPage] = useState(1);
     const [pokemonsPerPage, setPokemonsPerPage] = useState(12);
     
     const lastIndex = currentPage * pokemonsPerPage //12
@@ -41,6 +38,7 @@ const CardContainer = () => {
             pokemonsPerPage= {pokemonsPerPage} 
             allPokemonsToShow= {orderedPokemons.length}
             paginate= {paginate}></Paginate>
+
         { 
         currentPokemons?.map( (pokemon) => {
             pokemon?.name?.toUpperCase();
