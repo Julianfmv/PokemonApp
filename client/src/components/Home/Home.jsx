@@ -8,41 +8,53 @@ import style from './Home.module.css'
 
 const Home = () => {
 
+  
     const dispatch = useDispatch();
-
-    
     useEffect(() => {
         dispatch(actions.getAllPokemons())
         dispatch(actions.getTypes())
+        handleReset()
     }, [dispatch])
     
     const types = useSelector(state => state.allTypes)
 
-    const [order, setOrder] = useState('');
-    const [attack, setAttack] = useState('');
-
+    const [selectedOptionName, setSelectedOptionName] = useState("Default");
+    const [selectedOptionAttack, setSelectedOptionAttack] = useState("Default");
+    const [selectedOptionSource, setSelectedOptionSource] = useState("All");
+    const [selectedOptionType, setSelectedOptionType] = useState("All");
+    const [currentPage, setCurrentPage] = useState(1);
 
     function handleFilterByType (event) {
         dispatch(actions.filterByType(event.target.value))
+        setSelectedOptionType(event.target.value)
+        setCurrentPage(1)
     }
     function handleFilterCreated (event) {
         dispatch(actions.filterBySource(event.target.value))
+        setSelectedOptionSource(event.target.value)
+        setCurrentPage(1)
     }
     function handleOrderByName (event) {
         event.preventDefault();
         dispatch(actions.orderByName(event.target.value))
-        setOrder(`Ordered by ${event.target.value}`)
+        setSelectedOptionName(event.target.value)
+        setCurrentPage(1)
     }
     function handleOrderByAttack (event){
         event.preventDefault();
         dispatch(actions.orderByAttack(event.target.value))
-        setAttack(`Ordered By ${event.target.value}`)
+        setSelectedOptionAttack(event.target.value)
+        setCurrentPage(1)
+    }
+    const handleReset = () => {
+      dispatch(actions.resetFilters())
+      setSelectedOptionName('Default')
+      setSelectedOptionAttack('Default')
+      setSelectedOptionSource('All')
+      setSelectedOptionType('All')
+      setCurrentPage(1)
     }
     
-
-
-
-
     return (
         <div className={style.home}>
           <nav className={style.nav}>
@@ -60,8 +72,9 @@ const Home = () => {
               id="byName"
               defaultValue="Default"
               onChange={handleOrderByName}
+              value={selectedOptionName}
             >
-              <option value="Default">Default</option>
+              <option value="Default" disabled>Default</option>
               <option value="Ascendent">Ascendent</option>
               <option value="Descendent">Descendent</option>
             </select>
@@ -75,8 +88,9 @@ const Home = () => {
               id="byAttack"
               defaultValue="Default"
               onChange={handleOrderByAttack}
+              value={selectedOptionAttack}
             >
-              <option value="Default">Default</option>
+              <option value="Default" disabled>Default</option>
               <option value="Ascendent">Ascendent</option>
               <option value="Descendent">Descendent</option>
             </select>
@@ -90,6 +104,7 @@ const Home = () => {
               id="bySource"
               defaultValue="All"
               onChange={handleFilterCreated}
+              value={selectedOptionSource}
             >
               <option value="All">All</option>
               <option value="Database">Database</option>
@@ -105,6 +120,7 @@ const Home = () => {
               id="byTypes"
               defaultValue="All"
               onChange={handleFilterByType}
+              value={selectedOptionType}
             >
               <option value="All">All</option>
               {types.map((type) => (
@@ -113,8 +129,10 @@ const Home = () => {
                 </option>
               ))}
             </select>
+
+            <button onClick={handleReset}>Reset filters!</button>
           </div>
-          <CardContainer />
+          <CardContainer currentPage={currentPage} setCurrentPage={setCurrentPage} />
         </div>
       );
     

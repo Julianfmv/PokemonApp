@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import style from './BackgroundVideo.module.css';
-import background from '../../imageUtils/Horizon_v1.mp4';
+import background from '../../imageUtils/Horizon_v1_Trim.mp4'
 
 function VideoBackground() {
   const videoRef = useRef(null);

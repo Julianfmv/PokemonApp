@@ -7,6 +7,7 @@ import {
   FILTER_SEARCH,
   ORDER_ATTACK,
   ORDER_NAME,
+  RESET_FILTERS
 } from "./actionsTypes";
 
 const initialState = {
@@ -35,10 +36,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         allTypes: payload,
       };
-
     case FILTER_SEARCH:
       const foundPokemon = state.allPokemons.filter(
-        (pokemon) => pokemon.name === payload.toLowerCase()
+        (pokemon) => pokemon.name
+        .toLowerCase()
+        .includes(payload.toLowerCase()) 
       );
       return {
         ...state,
@@ -70,8 +72,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         pokemons: PokemonsByTypeFiltered,
-        defaultPage: 1,
       };
+      case RESET_FILTERS: 
+      return {
+        ...state,
+        pokemons: state.allPokemons
+      }
 
     case ORDER_NAME:
       const isAscendent = payload === "Ascendent";
