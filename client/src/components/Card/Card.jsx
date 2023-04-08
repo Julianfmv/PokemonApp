@@ -9,7 +9,6 @@ const Card = ({name, types, image, id, defense}) => {
             <h2 className={style.name}>{name?.toUpperCase()}</h2>
           </Link>
           <img className={style.image} src={image} alt={name} />
-          <h3 className={style.defenses}>Defense:{defense} </h3> 
           <h2 className={style.types}>Types: {types}</h2>
         </div>
       );
