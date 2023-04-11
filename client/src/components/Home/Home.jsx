@@ -63,7 +63,7 @@ const Home = () => {
           </nav>
           <div className={style.filters}>
             <label className={style.label} htmlFor="byName">
-              Filter by Name
+              Order by Name
             </label>
       
             <select
@@ -80,7 +80,7 @@ const Home = () => {
             </select>
       
             <label className={style.label} htmlFor="byAttack">
-              Filter By Attack
+              Order By Attack
             </label>
             <select
               className={style.select}
