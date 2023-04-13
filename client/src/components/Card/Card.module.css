@@ -51,7 +51,7 @@
   box-shadow: 5px 5px 5px var(--fire-color);
 }
 .water:hover {
-  box-shadow:  3px 3px 3px 3px var(--water-color);
+  box-shadow:  5px 5px 5px 5px var(--water-color);
 }
 .electric:hover{
   box-shadow: 5px 5px 5px var(--electric-color);
