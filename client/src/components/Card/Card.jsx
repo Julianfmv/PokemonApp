@@ -3,10 +3,6 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const Card = ({name, types, image, id}) => {
-
-	const typeClass = `${types?.[0].toLowerCase().trim()}`
-	const cardClasses = `${style.card} ${style[typeClass]}`;
-	const [isHovered, setIsHovered] = useState(false);
 	// const colours = {
 	//   normal: '#A8A77A',
 	//   fire: '#EE8130',
@@ -27,19 +23,12 @@ const Card = ({name, types, image, id}) => {
 	//   steel: '#B7B7CE',
 	//   fairy: '#D685AD',
 	// };
-	const handleMouseEnter = () => {
-		setIsHovered(true);
-	  };
-	
-	  const handleMouseLeave = () => {
-		setIsHovered(false);
-	  };
 
+	const typeClass = `${types?.[0].toLowerCase().trim()}`
+	const cardClasses = `${style.card} ${style[typeClass]}`;
 	return (
 	  <div 
-      className={cardClasses}
-		   onMouseEnter={handleMouseEnter}
-		   onMouseLeave={handleMouseLeave}>
+      className={cardClasses}>
 		<Link to={`/detail/${id}`}>
 		  <h2 className={style.name}>{name?.toUpperCase()}</h2>
 		</Link>
