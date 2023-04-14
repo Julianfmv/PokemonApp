@@ -1,21 +1,9 @@
-.card {
-    border: 1px solid #ddd;
-    border-radius: 7%;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-    padding: 16px;
-    width: 20%;
-    text-align: center;
-    margin: 10px;
-    transition: box-shadow 0.4s ease-in-out;
-    transition-duration: 0.4s;
-    position: relative
-  }
-  
-  .card img {
-    margin: 0 auto;
-    max-width: 100%;
-    height: 50%;
-    margin-top: 1rem;
+
+.card img {
+  margin: 0 auto;
+  max-width: 100%;
+  height: 50%;
+  margin-top: 1rem;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
@@ -43,7 +31,19 @@
     margin-top: 1rem;
     margin-bottom: 0.5rem;
   }
-
+  
+  .card {
+      border: 1px solid #ddd;
+      border-radius: 7%;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+      padding: 16px;
+      width: 20%;
+      text-align: center;
+      margin: 10px;
+      transition: box-shadow 0.4s ease-in-out;
+      transition-duration: 0.4s;
+      position: relative
+    }
 .normal:hover {
   box-shadow: 5px 5px 5px var(--normal-color);
 }
